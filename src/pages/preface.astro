@@ -1,0 +1,28 @@
+---
+import { getCollection } from "astro:content";
+import Time from "$utils/time";
+import Base from "$layouts/Base.astro";
+
+const { locale = "zh-cn" } = Astro.params;
+
+const prefaces = (await getCollection("preface")).sort((a, b) => b.data.timestamp.getTime() - a.data.timestamp.getTime());
+---
+
+<Base title="Praface" {locale}>
+	<main class="flex flex-col">
+		<h2>Prefaces</h2>
+		<ul class="flex flex-col list-none">
+			{
+				prefaces.map(preface => [
+					<hr class="my-5 b-b b-b-solid b-primary" />,
+					<li>
+						<h4 title={Time.full(preface.data.timestamp)} class="mb-5 text-5">
+							{Time.locale(preface.data.timestamp, locale)}
+						</h4>
+						<article class="markdown" set:html={preface.rendered?.html} />
+					</li>
+				])
+			}
+		</ul>
+	</main>
+</Base>

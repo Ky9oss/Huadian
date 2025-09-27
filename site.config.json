@@ -1,0 +1,18 @@
+{
+	"title": "Ky9ossBlog",
+	"prologue": "Life is sailing.\nWith heart as the compass, just soar into the clouds.",
+	"author": {
+		"name": "Ky9oss",
+		"email": "Ky9oss@163.com",
+		"link": "https://github.com/Ky9oss"
+	},
+	"description": "A modern Astro theme focused on content creation.",
+	"copyright": {
+		"type": "CC BY-NC-ND 4.0",
+		"year": "2025"
+	},
+	"feed": {
+		"section": "*",
+		"limit": 20
+	}
+}

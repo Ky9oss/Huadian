@@ -1,0 +1,43 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "include": [
+    ".astro/types.d.ts",
+    "**/*"
+  ],
+  "exclude": [
+    "dist"
+  ],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "types": ["svelte"],
+    "paths": {
+      "$assets/*": [
+        "src/assets/*"
+      ],
+      "$actions/*": [
+        "src/actions/*"
+      ],
+      "$utils/*": [
+        "src/utils/*"
+      ],
+      "$components/*": [
+        "src/components/*"
+      ],
+      "$db/*": [
+        "src/db/*"
+      ],
+      "$layouts/*": [
+        "src/layouts/*"
+      ],
+      "$styles/*": [
+        "src/styles/*"
+      ],
+      "$scripts/*": [
+        "src/scripts/*"
+      ],
+      "$config": [
+        "site.config.json"
+      ]
+    }
+  }
+}
