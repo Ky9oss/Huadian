@@ -1,6 +1,6 @@
 // @ts-check
+import node from '@astrojs/node';
 import { defineConfig, passthroughImageService } from "astro/config";
-import vercel from "@astrojs/vercel";
 import yaml from "@rollup/plugin-yaml";
 import sitemap from "@astrojs/sitemap";
 import svelte from "@astrojs/svelte";
@@ -37,7 +37,9 @@ import reading from "./src/utils/remark/reading";
 
 // https://astro.build/config
 export default defineConfig({
-    adapter: vercel(),  // See https://docs.astro.build/en/guides/deploy/ for more information about deploying Astro apps.
+    adapter: node({
+        mode: 'standalone',
+    }),
     site: "http://127.0.0.1:4321",
     trailingSlash: "never",
     image: {

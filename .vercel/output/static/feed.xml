@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="feed.xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>http://127.0.0.1:4321/</id>
+    <title>Ky9ossBlog</title>
+    <updated>2025-09-27T17:33:35.342Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <author>
+        <name>Ky9oss</name>
+        <email>Ky9oss@163.com</email>
+        <uri>https://github.com/Ky9oss</uri>
+    </author>
+    <link rel="alternate" href="http://127.0.0.1:4321/"/>
+    <subtitle>A modern Astro theme focused on content creation.</subtitle>
+    <logo>http://127.0.0.1:4321/favicon-96x96.png</logo>
+    <icon>http://127.0.0.1:4321/favicon.ico</icon>
+    <rights>CC BY-NC-ND 4.0 © 2025 Ky9oss</rights>
+    <entry>
+        <title type="html"><![CDATA[站点配置指南]]></title>
+        <id>configuration</id>
+        <link/>
+        <updated>2025-07-07T00:00:00.000Z</updated>
+        <category term="Guide"/>
+        <category term="Astro"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Markdown高级格式]]></title>
+        <id>content</id>
+        <link/>
+        <updated>2025-04-04T00:00:00.000Z</updated>
+        <category term="Content"/>
+        <category term="Demo"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Markdown 图片预览]]></title>
+        <id>image-preview</id>
+        <link/>
+        <updated>2025-04-04T00:00:00.000Z</updated>
+        <category term="Content"/>
+        <category term="Demo"/>
+    </entry>
+</feed>
