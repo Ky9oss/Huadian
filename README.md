@@ -11,6 +11,7 @@
 </div>
 
 [English](./README.md) | [简体中文](./README_CN.md)
+
 <br/>
 Huadian (花钿) is a blog framework developed and maintained by me, based on Astro, Svelte, and Node.js. It's forked from [ThoughtLite](https://github.com/tuyuritio/astro-theme-thought-lite)
 
