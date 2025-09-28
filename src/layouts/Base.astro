@@ -17,7 +17,8 @@ const title = config.title;
 
 ---
 
-<script>
+<script lang='ts'>
+
 	import zoom from "medium-zoom/dist/pure";
 
 	window.zoom = () => zoom(".markdown img", { background: "#00000044" });
@@ -27,23 +28,26 @@ const title = config.title;
 		window.zoom();
 	});
 
-    // 强行让系统偏好永远是亮色
-    const realMatchMedia = window.matchMedia;
-    window.matchMedia = (query: string) => {
-      if (query.includes('prefers-color-scheme')) {
-        return {
-          matches: query.includes('light'), // light => true, dark => false
-          media: query,
-          onchange: null,
-          addListener: () => {},        // 为兼容旧代码
-          removeListener: () => {},
-          addEventListener: () => {},
-          removeEventListener: () => {},
-          dispatchEvent: () => false,
-        } as MediaQueryList;
-      }
-      return realMatchMedia(query);
-    };
+    // type Theme = "light" | "dark";
+    //
+    // function updateMermaidMedia(theme: Theme): void {
+    //   const mediaMap = {
+    //       system: '(prefers-color-scheme: dark)',
+    //     dark: 'all',
+    //     light: 'none'
+    //   };
+    //
+    //   document.querySelectorAll('[id^="mermaid-dark"]').forEach(el =>
+    //     el.setAttribute('media', mediaMap[theme] || 'none')
+    //   );
+    // };
+    //
+    // const stored = localStorage.getItem("theme");
+    // console.log(stored);
+    // const theme = stored === "dark" ? "dark" : (document.documentElement.dataset.theme || "light");
+    //
+    // updateMermaidMedia(theme);
+
 </script>
 
 <App {title} {subtitle} {description} {article} author={typeof config.author == "string" ? config.author : config.author.name}>

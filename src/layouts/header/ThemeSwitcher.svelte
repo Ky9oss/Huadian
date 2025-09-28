@@ -76,6 +76,5 @@
       const appliedTheme: Theme = themeFromStorage === "dark" ? "dark" : "light";
 
       turn_dark(appliedTheme === "dark");
-      updateMermaidMedia(appliedTheme);
 	});
 </script>

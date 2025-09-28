@@ -49,6 +49,86 @@ for (const item of headings) {
 <Base title={note.data.title} description={note.data.description} article={{ timestamp: note.data.timestamp, section: note.data.series, tags: note.data.tags }}>
 	<main class="flex flex-col gap-6">
 		<header class="flex flex-col gap-4">
+            <script lang="ts">
+            (function () {
+              // 读取当前 theme（与 ThemeSwitcher 保持一致）
+              function getTheme() {
+                const stored = localStorage.getItem("theme");
+                if (stored === "dark" || stored === "light") return stored;
+                const ds = document.documentElement.dataset.theme;
+                if (ds === "dark" || ds === "light") return ds;
+                // fallback to prefers-color-scheme
+                return (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? "dark" : "light";
+              }
+
+              function applyMediaToElement(el, theme) {
+                  const id = el.id || "";
+                  const media = el.getAttribute("media") || "";
+
+                  if (id.startsWith("mermaid-dark") || media.includes("prefers-color-scheme")) {
+                    const mediaMap = { dark: "all", light: "none" };
+                    const newValue = mediaMap[theme] || "none";
+
+                    // ✅ 只有当值不同的时候才设置，避免无限递归
+                    if (media !== newValue) {
+                      el.setAttribute("media", newValue);
+                    }
+                  }
+                }
+
+
+              function updateMermaidMediaForAll() {
+                const theme = getTheme();
+                // 选择器同时查找 id 开头与 style[media*=prefers-color-scheme] 的情况
+                document.querySelectorAll('[id^="mermaid-dark"], style[media*="prefers-color-scheme"]').forEach(el =>
+                  applyMediaToElement(el, theme)
+                );
+              }
+
+              // 先尝试一次（处理已经存在的元素）
+              updateMermaidMediaForAll();
+
+              // 观察 DOM 的新增节点以及属性变动（例如 mermaid 先插入 <style> 后再设置 id/media）
+              const observer = new MutationObserver(mutations => {
+                const theme = getTheme();
+                for (const m of mutations) {
+                  if (m.type === "childList") {
+                    m.addedNodes.forEach(node => {
+                      if (!(node instanceof Element)) return;
+                      // 如果新增的节点本身匹配
+                      if (node.matches && (node.matches('[id^="mermaid-dark"]') || (node.tagName === "STYLE" && (node.getAttribute("media") || "").includes("prefers-color-scheme")))) {
+                        applyMediaToElement(node, theme);
+                      }
+                      // 以及其后代
+                      if (node.querySelectorAll) {
+                        node.querySelectorAll('[id^="mermaid-dark"], style[media*="prefers-color-scheme"]').forEach(el => applyMediaToElement(el, theme));
+                      }
+                    });
+                  } else if (m.type === "attributes") {
+                    // 当某些库先插入标签再设置 id/media 时，这里也会捕获
+                    const target = m.target;
+                    if (target instanceof Element) applyMediaToElement(target, theme);
+                  }
+                }
+              });
+
+              observer.observe(document.documentElement || document, {
+                childList: true,
+                subtree: true,
+                attributes: true,
+                attributeFilter: ["id", "media"]
+              });
+
+              // 当 SPA 导航或本地存储 theme 改变时也触发一次
+              document.addEventListener("astro:page-load", updateMermaidMediaForAll);
+              window.addEventListener("storage", (e) => {
+                if (e.key === "theme") updateMermaidMediaForAll();
+              });
+
+            })();
+            </script>
+
+
 			<h1 class="text-3xl">{note.data.title}</h1>
 			<div class="flex flex-col gap-3 sm:flex-row children:(flex items-center gap-1 text-3.5 c-secondary)">
 				<time title={Time.full(note.data.timestamp)}><Icon name="lucide:calendar" />{Time(note.data.timestamp)}</time>

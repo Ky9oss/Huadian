@@ -8,3 +8,7 @@
 ## Bugs
 - Fix error in icons and borders
 
+# 2025-09-29
+
+## Bugs
+- Fix error in mermaid with dark/light mode
