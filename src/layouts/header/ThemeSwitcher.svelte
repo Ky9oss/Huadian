@@ -72,15 +72,10 @@
 	}
 
 	onMount(() => {
-		// Detect system color scheme preference
-		const mode = window.matchMedia("(prefers-color-scheme: dark)");
-		const theme = localStorage.getItem("theme");
+      const themeFromStorage = localStorage.getItem("theme");
+      const appliedTheme: Theme = themeFromStorage === "dark" ? "dark" : "light";
 
-		// Use stored preference or fallback to system preference
-		turn_dark(theme ? theme == "dark" : mode.matches);
-		// Listen for system theme changes and apply automatically
-		mode.addEventListener("change", ({ matches }) => turn_dark(matches));
-
-        updateMermaidMedia(theme);
+      turn_dark(appliedTheme === "dark");
+      updateMermaidMedia(appliedTheme);
 	});
 </script>

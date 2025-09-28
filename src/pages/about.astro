@@ -8,16 +8,44 @@ const { locale = "zh-cn" } = Astro.params;
 
 const information = await getCollection("information");
 
-let introduction = information.find(info => info.id == "introduction");
-let roll = information.find(info => info.id == "roll");
+let about-the-blog = information.find(info => info.id == "about-the-blog");
+let about-me = information.find(info => info.id == "about-me");
 
-const { Content: Introduction } = introduction ? await render(introduction) : ({} as any);
-const { Content: Roll } = roll ? await render(roll) : ({} as any);
+const { Content: Introduction } = about-the-blog ? await render(about-the-blog) : ({} as any);
+const { Content: Roll } = about-me ? await render(about-me) : ({} as any);
 
-let chronicle = information.find(info => info.id == "chronicle")?.data;
-let chronicles = Object.entries<string[]>(chronicle ?? {})
-	.map(([date, events]) => ({ date: new Date(date), events: events ?? [] }))
-	.sort((a, b) => b.date.getTime() - a.date.getTime());
+interface Chronicle {
+  date: Date;
+  events: string[];
+}
+
+const modules1 = import.meta.glob('$content/*.md', { eager: true });
+const modules2 = import.meta.glob('$content/**/*.md', { eager: true });
+
+const modules = { ...modules1, ...modules2 };
+
+
+let chronicles: Chronicle[] = [];
+
+for (const path in modules) {
+  const mod = modules[path] as { frontmatter?: { timestamp?: string; title?: string } };
+  if (!mod.frontmatter?.timestamp || !mod.frontmatter.title) continue;
+
+  const dateKey = new Date(mod.frontmatter.timestamp).toISOString().slice(0, 10);
+
+  const existing = chronicles.find(c => c.date.toISOString().slice(0, 10) === dateKey);
+  if (existing) {
+    existing.events.push(mod.frontmatter.title);
+  } else {
+    chronicles.push({
+      date: new Date(mod.frontmatter.timestamp),
+      events: [mod.frontmatter.title],
+    });
+  }
+}
+
+// 按日期降序排序
+chronicles.sort((a, b) => b.date.getTime() - a.date.getTime());
 ---
 
 <style lang="less">
@@ -38,7 +66,7 @@ let chronicles = Object.entries<string[]>(chronicle ?? {})
 	<main class="flex flex-col sm:flex-row justify-between gap-2">
 		<article class="flex flex-col">
 			{
-				introduction && (
+				about-the-blog && (
 					<div>
 						<h1>About the Blog</h1>
 						<samp class="markdown">
@@ -48,7 +76,7 @@ let chronicles = Object.entries<string[]>(chronicle ?? {})
 				)
 			}
 			{
-				roll && (
+				about-me && (
 					<div>
 						<h1>About Me</h1>
 						<samp class="markdown">
@@ -64,7 +92,11 @@ let chronicles = Object.entries<string[]>(chronicle ?? {})
 				{
 					chronicles.map(chronicle => (
 						<li class="relative mb-2 pb-2 before:(absolute content-empty top-3.4 left--3.8 h-full b-l-2 b-l-solid b-primary) last:after:(absolute content-empty left--5 bottom--4 w-2 h-2 b-2 b-solid b-primary rd-full bg-primary)">
-							<span class="relative font-mono before:(absolute content-empty inline-block top-1 left--5 w-2 h-2 b-2 b-solid b-primary rd-full)">{Time.date(chronicle.date)}</span>
+                            <span 
+                                  style={{
+                                    fontFamily: 'var(--monospace)',
+                                    }}
+                                    class="relative before:(absolute content-empty inline-block top-1 left--5 w-2 h-2 b-2 b-solid b-primary rd-full)">{Time.date(chronicle.date)}</span>
 							<ul class="my-2 pl-4 list-none">
 								{chronicle.events.map(event => {
 									const remove = event?.match(/^~(?!~)(.*)$/);

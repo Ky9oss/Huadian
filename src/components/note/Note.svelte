@@ -66,7 +66,11 @@
 						{#if note.data.series}<button onclick={() => choose_series(note.data.series, true)}>{note.data.series}</button><b>|</b>{/if}
 						<a href={`/note/${note.id.split("/")}`} class="link">{note.data.title}</a>
 					</div>
-					<time title={Time.full(note.data.timestamp)} class="font-mono text-2.6 c-remark">{Time(note.data.timestamp)}</time>
+					<time title={Time.full(note.data.timestamp)} class="text-2.6 c-remark" 
+                      style={{
+                        fontFamily: 'var(--monospace)',
+                        }}
+                    >{Time(note.data.timestamp)}</time>
 				</div>
 				<span class="flex items-center gap-1 sm:ml-a c-remark">
 					{#each note.data.tags as tag}
@@ -77,7 +81,10 @@
 		{/each}
 
 		{#if pages > 1}
-			<footer class="sticky bottom-0 flex items-center justify-center gap-3 mt-a pb-1 c-weak bg-background font-mono">
+			<footer class="sticky bottom-0 flex items-center justify-center gap-3 mt-a pb-1 c-weak bg-background" 
+              style={{
+                fontFamily: 'var(--monospace)',
+                }}>
 				<button onclick={() => (page = Math.max(1, page - 1))}>{@render left()}</button>
 				<button class:location={1 == page} onclick={() => (page = 1)}>{1}</button>
 
