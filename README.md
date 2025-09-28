@@ -6,8 +6,9 @@
     <img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" alt="Maintenance">
     <img src="https://img.shields.io/badge/Maintainer-Ky9oss-red" alt="Maintainer">
     <br>
-    <br>
     <img src="public/huadian.jpg" alt="" width="203.5" height="203.5">
+    <br>
+    <br>
 </div>
 
 Huadian(花钿)是由我本人开发并维护的博客框架，基于Astro、Svelte和Nodejs。
