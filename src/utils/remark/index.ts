@@ -9,15 +9,17 @@ import rehype from "remark-rehype";
 import links from "rehype-external-links";
 import katex from "rehype-katex";
 import stringify from "rehype-stringify";
+import mermaid from 'rehype-mermaid';
 
 export default unified()
-	.use(parse)
-	.use(breaks)
-	.use(gfm, { singleTilde: false })
-	.use(ins)
-	.use(emoji)
-	.use(math)
-	.use(rehype)
-	.use(links, { target: "_blank", rel: ["nofollow", "noopener", "noreferrer"] })
-	.use(katex)
-	.use(stringify);
+    .use(parse)
+    .use(breaks)
+    .use(gfm, { singleTilde: false })
+    .use(ins)
+    .use(mermaid)
+    .use(emoji)
+    .use(math)
+    .use(rehype)
+    .use(links, { target: "_blank", rel: ["nofollow", "noopener", "noreferrer"] })
+    .use(katex)
+    .use(stringify);

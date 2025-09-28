@@ -7,7 +7,7 @@
 	--selection-color: #adadacc3;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
 	:root {
 		--primary-color: #dddddb;
 		--remark-color: #a5a5a5;
@@ -36,7 +36,7 @@ a {
 
 html {
 	color: var(--primary-color);
-	font-family: serif;
+	font-family: 'Noto Serif SC Variable', serif;
 	line-height: 1.15;
 
 	background-color: var(--background-color);
