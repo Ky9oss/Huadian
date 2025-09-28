@@ -12,15 +12,15 @@
 
 [English](./README.md) | [简体中文](./README_CN.md)
 <br/>
-Huadian (花钿) is a blog framework developed and maintained by me, based on Astro, Svelte, and Node.js. It's forked from [ThoughtLite](https://github.com/tuyuritio/astro-theme-thought-lite)
+Huadian(花钿)是由我本人开发并维护的博客框架，基于Astro、Svelte和Nodejs。该项目fork于[ThoughtLite](https://github.com/tuyuritio/astro-theme-thought-lite)
 
 Live Demo: [Huadian](http://120.46.169.136)
 
 # Features
-- Responsive Design: Supports mobile, tablet, and desktop
-- Powerful Markdown Rendering: Supports extended syntax and mermaid flowcharts
-- Clean and Minimal Style: Smooth animations and pages built with Astro and Svelte
-- Light/Dark Mode Support: Full support, including theme switching for code blocks and flowcharts
+- Responsive设计：支持手机、平板和电脑
+- 强大的Markdown渲染：支持扩展语法及`mermaid`流程图
+- 简洁干净的风格：基于`Astro`和`Svelte`的流畅的动画和网页
+- Light/Dark模式支持：完整的支持，包括代码块和流程图的亮暗色切换
 
 # Quickstart
 
