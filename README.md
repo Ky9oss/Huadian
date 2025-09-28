@@ -1,10 +1,9 @@
-# Huadian
-
 <div align="center">
-    <h1>Rustphish</h1>
+    <h1>Huadian</h1>
     <img src="https://img.shields.io/badge/Made%20with-Astro-1f425f.svg" alt="made-with-typescript">
     <img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" alt="Maintenance">
     <img src="https://img.shields.io/badge/Maintainer-Ky9oss-red" alt="Maintainer">
+    <br>
     <br>
     <img src="public/huadian.jpg" alt="" width="203.5" height="203.5">
     <br>
