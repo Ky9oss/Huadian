@@ -1,6 +1,6 @@
 ---
-title: Markdown高级格式
-timestamp: 2025-04-04 00:00:00+00:00
+title: Markdown示例
+timestamp: 2025-09-29 00:00:00+00:00
 series: Astro
 tags: [Content, Demo]
 contents: true
@@ -12,6 +12,8 @@ top: 1
 ```lua
 print('hello world')
 ```
+
+行内代码块`print('hello world')`
 
 下面是分割线
 
@@ -98,7 +100,7 @@ print('hello world')
 > 333
 > 444
 
-# 流程图
+# mermaid流程图
 
 ```mermaid
 graph TD

@@ -1,11 +1,11 @@
 ---
 title: Markdown 图片预览
-timestamp: 2025-04-04 00:00:00+00:00
+timestamp: 2025-09-29 00:06:00+00:00
 series: Astro
 tags: [Content, Demo]
 ---
 
-演示 Markdown 中图片引用的三种方式：相对路径、绝对路径和外部链接，展示图片优化和管理最佳实践。
+演示 Markdown 中图片引用
 
 ## 相对路径
 
@@ -23,11 +23,3 @@ tags: [Content, Demo]
 使用 `/public` 目录下的图片文件：
 
 ![ship](/web-app-manifest-512x512.png)
-
-## 外部图床
-
-使用外部 URL 的图片[^random]：
-
-[^random]: 随机图片来源：[Picsum](https://picsum.photos/)
-
-![示例图片](https://picsum.photos/1600/900?random=1)

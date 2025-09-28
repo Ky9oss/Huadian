@@ -187,11 +187,7 @@ export default defineConfig({
                     "x"
                 ],
                 "simple-icons": [
-                    "astro",
-                    "svelte",
                     "github",
-                    "google",
-                    "x",
                 ],
                 "svg-spinners": [
                     "3-dots-move",
