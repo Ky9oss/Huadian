@@ -28,26 +28,6 @@ const title = config.title;
 		window.zoom();
 	});
 
-    // type Theme = "light" | "dark";
-    //
-    // function updateMermaidMedia(theme: Theme): void {
-    //   const mediaMap = {
-    //       system: '(prefers-color-scheme: dark)',
-    //     dark: 'all',
-    //     light: 'none'
-    //   };
-    //
-    //   document.querySelectorAll('[id^="mermaid-dark"]').forEach(el =>
-    //     el.setAttribute('media', mediaMap[theme] || 'none')
-    //   );
-    // };
-    //
-    // const stored = localStorage.getItem("theme");
-    // console.log(stored);
-    // const theme = stored === "dark" ? "dark" : (document.documentElement.dataset.theme || "light");
-    //
-    // updateMermaidMedia(theme);
-
 </script>
 
 <App {title} {subtitle} {description} {article} author={typeof config.author == "string" ? config.author : config.author.name}>
