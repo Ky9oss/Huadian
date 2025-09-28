@@ -8,11 +8,11 @@ const { locale = "zh-cn" } = Astro.params;
 
 const information = await getCollection("information");
 
-let about-the-blog = information.find(info => info.id == "about-the-blog");
-let about-me = information.find(info => info.id == "about-me");
+let about_the_blog = information.find(info => info.id == "about-the-blog");
+let about_me = information.find(info => info.id == "about-me");
 
-const { Content: Introduction } = about-the-blog ? await render(about-the-blog) : ({} as any);
-const { Content: Roll } = about-me ? await render(about-me) : ({} as any);
+const { Content: Introduction } = about_the_blog ? await render(about_the_blog) : ({} as any);
+const { Content: Roll } = about_me ? await render(about_me) : ({} as any);
 
 interface Chronicle {
   date: Date;
@@ -66,7 +66,7 @@ chronicles.sort((a, b) => b.date.getTime() - a.date.getTime());
 	<main class="flex flex-col sm:flex-row justify-between gap-2">
 		<article class="flex flex-col">
 			{
-				about-the-blog && (
+				about_the_blog && (
 					<div>
 						<h1>About the Blog</h1>
 						<samp class="markdown">
@@ -76,7 +76,7 @@ chronicles.sort((a, b) => b.date.getTime() - a.date.getTime());
 				)
 			}
 			{
-				about-me && (
+				about_me && (
 					<div>
 						<h1>About Me</h1>
 						<samp class="markdown">
