@@ -11,6 +11,19 @@
 
 	let { sun, moon, dark = $bindable(false) } = $props();
 
+    type Theme = "light" | "dark";
+
+    function updateMermaidMedia(theme: Theme): void {
+      const mediaMap = {
+        dark: 'all',
+        light: 'none'
+      };
+
+      document.querySelectorAll('[id^="mermaid-dark"]').forEach(el =>
+        el.setAttribute('media', mediaMap[theme] || 'none')
+      );
+    }
+
 	/**
 	 * Apply theme to DOM and persist to localStorage
 	 * @param on whether to enable dark mode
@@ -21,6 +34,8 @@
 		document.documentElement.dataset.theme = theme;
 		// Persist user preference across sessions
 		localStorage.setItem("theme", theme);
+
+        updateMermaidMedia(theme);
 	}
 
 	/**
@@ -65,5 +80,7 @@
 		turn_dark(theme ? theme == "dark" : mode.matches);
 		// Listen for system theme changes and apply automatically
 		mode.addEventListener("change", ({ matches }) => turn_dark(matches));
+
+        updateMermaidMedia(theme);
 	});
 </script>

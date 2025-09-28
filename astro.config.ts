@@ -26,7 +26,6 @@ import rehypeMermaid from 'rehype-mermaid';
 import anchor from "rehype-autolink-headings";
 import links from "rehype-external-links";
 import katex from "rehype-katex";
-// @ts-ignore
 import figure from "rehype-figure";
 import sectionize from "@hbsnow/rehype-sectionize";
 
@@ -47,6 +46,10 @@ export default defineConfig({
         service: passthroughImageService(),
     },
     markdown: {
+        syntaxHighlight: {
+          type: "shiki",
+          excludeLangs: ["mermaid"]
+        },
         remarkPlugins: [
             [GFM, { singleTilde: false }],
             ins,
@@ -78,7 +81,7 @@ export default defineConfig({
         },
         rehypePlugins: [
             ids,
-            rehypeMermaid,
+            [rehypeMermaid, { strategy: "img-svg", dark: true, colorScheme: "forest"}], 
             [anchor, { behavior: "append", content: { type: "text", value: "" } }],
             [links, { target: "_blank", rel: ["nofollow", "noopener", "noreferrer"] }],
             katex,

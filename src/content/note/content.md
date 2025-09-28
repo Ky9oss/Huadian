@@ -101,7 +101,7 @@ print('hello world')
 # 流程图
 
 ```mermaid
-flowchart LR
+graph TD
 smbconnection --> 初始化 --> 判断连接端口
 判断连接端口 --> 139端口 --> *使用NetBios-TCP连接 --> 获取NetBios名称 --> *再次使用NetBios-TCP连接 
 判断连接端口 --> 445端口 --> *再次使用NetBios-TCP连接 
