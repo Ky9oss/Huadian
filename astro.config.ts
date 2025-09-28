@@ -22,7 +22,7 @@ import directive from "remark-directive";
 import ruby from "remark-ruby-directive";
 import alerts from "remark-github-blockquote-alert";
 import { rehypeHeadingIds as ids } from "@astrojs/markdown-remark";
-import mermaid from 'rehype-mermaid';
+import rehypeMermaid from 'rehype-mermaid';
 import anchor from "rehype-autolink-headings";
 import links from "rehype-external-links";
 import katex from "rehype-katex";
@@ -78,7 +78,7 @@ export default defineConfig({
         },
         rehypePlugins: [
             ids,
-            mermaid,
+            rehypeMermaid,
             [anchor, { behavior: "append", content: { type: "text", value: "" } }],
             [links, { target: "_blank", rel: ["nofollow", "noopener", "noreferrer"] }],
             katex,

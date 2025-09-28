@@ -9,19 +9,19 @@ import rehype from "remark-rehype";
 import links from "rehype-external-links";
 import katex from "rehype-katex";
 import stringify from "rehype-stringify";
-import remarkParse from 'remark-parse';
 import rehypeMermaid from 'rehype-mermaid';
+import remarkParse from 'remark-parse';
 
 export default unified()
-    .use(parse)
-    // .use(remarkParse)
+    // .use(parse)
+    .use(remarkParse)
     .use(breaks)
     .use(gfm, { singleTilde: false })
     .use(ins)
     .use(emoji)
     .use(math)
     .use(rehype)
-    // .use(rehypeMermaid)
+    .use(rehypeMermaid)
     .use(links, { target: "_blank", rel: ["nofollow", "noopener", "noreferrer"] })
     .use(katex)
     .use(stringify);

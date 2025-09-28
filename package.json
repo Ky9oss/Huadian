@@ -70,7 +70,6 @@
 		"remark-ins": "^1.2.1",
 		"remark-math": "^6.0.0",
 		"remark-ruby-directive": "^0.3.0",
-        "remark-mermaidjs": "^7.0.0",
         "remark-parse": "^11.0.0",
         "@fontsource/noto-serif-sc": "^5.2.8",
         "@fontsource/noto-serif": "^5.2.9",
