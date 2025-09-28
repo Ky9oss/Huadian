@@ -71,10 +71,12 @@
 		"remark-math": "^6.0.0",
 		"remark-ruby-directive": "^0.3.0",
         "remark-mermaidjs": "^7.0.0",
+        "remark-parse": "^11.0.0",
         "@fontsource/noto-serif-sc": "^5.2.8",
         "@fontsource/noto-serif": "^5.2.9",
         "@fontsource/playwrite-mx": "^5.2.7",
         "@fontsource/maple-mono": "^5.2.4",
+        "@fontsource/material-symbols-outlined": "^5.2.24",
 		"svelte": "^5.39.3",
 		"typescript": "^5.9.2"
 	},

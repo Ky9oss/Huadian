@@ -79,7 +79,7 @@ export default defineConfig({
         rehypePlugins: [
             ids,
             mermaid,
-            [anchor, { behavior: "append", content: { type: "text", value: "󰌷" } }],
+            [anchor, { behavior: "append", content: { type: "text", value: "" } }],
             [links, { target: "_blank", rel: ["nofollow", "noopener", "noreferrer"] }],
             katex,
             figure,

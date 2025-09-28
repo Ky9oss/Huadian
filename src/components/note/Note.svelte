@@ -167,7 +167,7 @@
 		}
 
 		// Fetch note list with current filters and pagination
-		actions.note.list({ locale, size, page, series, tags }).then(({ data, error }) => {
+		actions.note.list({ size, page, series, tags }).then(({ data, error }) => {
 			if (!error) {
 				// Update local state with fetched data
 				list = data.notes;
