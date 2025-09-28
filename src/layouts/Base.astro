@@ -14,6 +14,7 @@ let route = Astro.url.pathname;
 const { locale = "zh_CN", title: subtitle, description = config.description, article } = Astro.props;
 const title = config.title;
 
+
 ---
 
 <script>
@@ -25,6 +26,24 @@ const title = config.title;
 	document.addEventListener("astro:page-load", () => {
 		window.zoom();
 	});
+
+    // 强行让系统偏好永远是亮色
+    const realMatchMedia = window.matchMedia;
+    window.matchMedia = (query: string) => {
+      if (query.includes('prefers-color-scheme')) {
+        return {
+          matches: query.includes('light'), // light => true, dark => false
+          media: query,
+          onchange: null,
+          addListener: () => {},        // 为兼容旧代码
+          removeListener: () => {},
+          addEventListener: () => {},
+          removeEventListener: () => {},
+          dispatchEvent: () => false,
+        } as MediaQueryList;
+      }
+      return realMatchMedia(query);
+    };
 </script>
 
 <App {title} {subtitle} {description} {article} author={typeof config.author == "string" ? config.author : config.author.name}>

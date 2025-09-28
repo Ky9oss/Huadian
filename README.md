@@ -12,6 +12,8 @@
 
 Huadian(花钿)是由我本人开发并维护的博客框架，基于Astro、Svelte和Nodejs。
 
+🎬 Live Demo (仅国内访问): [Huadian](http://120.46.169.136)
+
 # Features
 - 强大的Markdown渲染：支持所有常见语法及`mermaid`流程图
 - 结构清晰的博客架构：支持Sitemap、tag、series等检索功能
@@ -25,8 +27,8 @@ Huadian(花钿)是由我本人开发并维护的博客框架，基于Astro、Sve
 git clone https://github.com/Ky9oss/Huadian
 cd Huadian
 npm install
-npm run build
 npx playwright install --with-deps chromium
+npm run build
 HOST=0.0.0.0 PORT=4321 node ./dist/server/entry.mjs
 ```
 
