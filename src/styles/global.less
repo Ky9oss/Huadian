@@ -219,7 +219,17 @@ svg {
 	z-index: 1;
 }
 
-img[id^="mermaid-"] {
-  display: block;
-  max-width: none;
+picture {
+  display: block;        /* 避免行内间距 */
+  max-width: 600px;      /* 容器最大宽度 */
+  overflow-x: auto;      /* 横向滚动 */
+  border: 1px solid #ccc;
 }
+
+picture img {
+  display: block;
+  max-width: none;       /* 允许图片超过容器宽度 */
+  height: auto;          /* 保持纵横比 */
+}
+
+
