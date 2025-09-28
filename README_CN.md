@@ -14,7 +14,7 @@
 
 Huadian(花钿)是由我本人开发并维护的博客框架，基于Astro、Svelte和Nodejs。该项目fork于[ThoughtLite](https://github.com/tuyuritio/astro-theme-thought-lite)
 
-Live Demo: [Huadian](http://120.46.169.136)
+🎬 **Live Demo**: [Huadian](http://120.46.169.136)
 
 # Features
 - Responsive设计：支持手机、平板和电脑

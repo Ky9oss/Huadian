@@ -14,7 +14,7 @@
 
 Huadian (花钿) is a blog framework developed and maintained by me, based on Astro, Svelte, and Node.js. It's forked from [ThoughtLite](https://github.com/tuyuritio/astro-theme-thought-lite)
 
-Live Demo: [Huadian](http://120.46.169.136)
+🎬 **Live Demo**: [Huadian](http://120.46.169.136)
 
 # Features
 - Responsive Design: Supports mobile, tablet, and desktop
