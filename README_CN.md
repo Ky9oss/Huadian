@@ -11,7 +11,7 @@
 </div>
 
 [English](./README.md) | [简体中文](./README_CN.md)
-<br/>
+
 Huadian(花钿)是由我本人开发并维护的博客框架，基于Astro、Svelte和Nodejs。该项目fork于[ThoughtLite](https://github.com/tuyuritio/astro-theme-thought-lite)
 
 Live Demo: [Huadian](http://120.46.169.136)
